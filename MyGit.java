@@ -15,9 +15,6 @@ public class MyGit {
     BufferedReader stdInput = new BufferedReader(new
      InputStreamReader(pr.getInputStream()));
 
-    BufferedReader stdError = new BufferedReader(new
-         InputStreamReader(pr.getErrorStream()));
-
     String s = null;
     while ((s = stdInput.readLine()) != null) {
        System.out.println(s);
@@ -34,7 +31,8 @@ public class MyGit {
   }
 
   public void commit() throws IOException {
-    runCommand("git commit -m \"New commit\"");
+    runCommand("echo nvdjsbvhfibds");
+    runCommand("git commit -m new_commit");
   }
 
   public void create(String name) throws IOException{
@@ -49,7 +47,8 @@ public class MyGit {
 
   public static void main(String[] args) throws IOException {
     MyGit mygit = new MyGit();
-    mygit.runCommand("rm -r .git;");
+    mygit.runCommand("chmod -R 777 .git");
+    mygit.runCommand("rm -r .git");
     for (int i = 0; i < args.length; ++i) {
       if (args[i].equals("init")) {
         mygit.init();

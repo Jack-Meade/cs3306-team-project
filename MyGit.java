@@ -31,7 +31,6 @@ public class MyGit {
   }
 
   public void commit() throws IOException {
-    runCommand("echo nvdjsbvhfibds");
     runCommand("git commit -m new_commit");
   }
 

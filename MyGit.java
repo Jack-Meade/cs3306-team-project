@@ -26,7 +26,8 @@ public class MyGit {
   }
 
   public void add(String name) throws IOException {
-    String addCommand = String.format("git add %s", name);
+    String versionString = String.format("%s-Version%d", name, this.files.get(name));
+    String addCommand = String.format("git add %s", versionString);
     runCommand(addCommand);
   }
 
@@ -35,13 +36,18 @@ public class MyGit {
   }
 
   public void create(String name) throws IOException{
-    String createCommand = String.format("touch %s", name);
+    this.files.put(name, 1);
+    String versionString = String.format("%s-Version%d", name, this.files.get(name));
+    String createCommand = String.format("touch %s", versionString);
     runCommand(createCommand);
-    this.files.put(name, 0);
   }
 
-  public void touch(String name) {
+  public void touch(String name) throws IOException{
+    String oldVersionString = String.format("%s-Version%d", name, this.files.get(name));
     this.files.put(name, this.files.get(name) + 1);
+    String newVersionString = String.format("%s-Version%d", name, this.files.get(name));
+    String renameString = String.format("git mv %s %s", oldVersionString, newVersionString);
+    runCommand(renameString);
   }
 
   public static void main(String[] args) throws IOException {

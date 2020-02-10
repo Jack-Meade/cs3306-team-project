@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 function usage() {
   echo "Usage: ${0} ⟨command sequence⟩" 1>&2
   exit ${1}
@@ -11,4 +10,6 @@ if [ ${#} -eq 1 ]; then
   usage 1;
 else
   javac MyGit.java
-  java MyGit ${@:2}
+  java MyGit ${@:1}
+
+fi

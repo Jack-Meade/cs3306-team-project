@@ -5,11 +5,12 @@ function usage() {
   exit ${1}
 }
 
-# check that some arguments habe been passed
-if [ ${#} -eq 1 ]; then
-  usage 1;
+# basic help function to see usage
+if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+  usage 0;
 else
+  # compile and run MyGit.java with every argument passed.
+  # ${@:1} excludes './mygit' from args 
   javac MyGit.java
   java MyGit ${@:1}
-
 fi

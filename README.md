@@ -8,11 +8,11 @@
 
 # Responsibilities
 * Daniels   - Build file
-* Raymond   -
+* Raymond   - Java Development
 * Conor     - JUnit tests
 * Jack      - JavaDoc creation
-* Ronan     -
-* Cian      -
+* Ronan     - Java Development
+* Cian      - Java Development
 
 # Location
 /users/shared/groups/group01

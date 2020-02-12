@@ -9,7 +9,7 @@ function usage() {
 if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
   usage 0;
 else
-  # compile and run MyGit.java with every argument passed.
+  # compile and run MyGit.java (from src to bin) with every argument passed.
   # ${@:1} excludes './mygit' from args
   javac src/MyGit.java -d "./bin"
   java -cp "./bin" MyGit ${@:1}

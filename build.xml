@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!--Daniels Bindemans (117430494) -->
+<project name="cs3306-team-project" default="build" basedir=".">
+    <description>
+        Build file for cs3306-team-project
+        To Run build file:
+            ant clean   // to clean up the directory structure
+            ant compile // to compile java files in ${src}
+            ant         // to compile and build jar jarfile in ${build}
+    </description>
+    
+    <!-- Setup of global properties-->
+    <property name="src" location="src"/>
+    <property name="bin" location="bin"/>
+    <property name="tests.bin" location="tests/bin"/>
+    <property name="tests.src" location="tests/src"/>
+    <property name="build" location="build"/>
+    <property name="javadoc" location="javadoc"/>
+
+    <target name="compile">
+        <mkdir dir="${bin}"/>
+        <javac srcdir="${src}" destdir="${bin}" includeantruntime="false"/>
+    </target>
+
+    <target name="build" depends="compile">
+        <jar basedir="${bin}" jarfile="${build}/project.jar" includes="*.class">
+            <manifest>
+                <attribute name="Main-Class" value="MyGit" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="clean">
+        <!-- Clean up the directory structure by deleting
+            ${bin}, ${tests.bin}, ${build}, ${javadoc}
+        -->
+        <delete dir="${bin}"/>
+        <delete dir="${tests.bin}"/>
+        <delete dir="${build}"/>
+        <delete dir="${javadoc}"/>
+    </target>
+
+</project>

@@ -6,7 +6,7 @@ import org.junit.Before;
 import java.io.*;
 // Conor McDonald 117445926
 
-public class tests {
+public class JUnit {
   MyGit gitTest = new MyGit();
 
   @Test(timeout = 1000)
